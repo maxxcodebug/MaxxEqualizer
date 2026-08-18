@@ -39,7 +39,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name="com.bearinmind.equalizer314.EqApp"
+        android:name="com.maxxcodebug.maxxequalizer.EqApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -49,7 +49,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name="com.bearinmind.equalizer314.MainActivity"
+            android:name="com.maxxcodebug.maxxequalizer.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Equalizer314"
@@ -83,78 +83,78 @@
         </activity>
 
         <activity
-            android:name="com.bearinmind.equalizer314.MbcActivity"
+            android:name="com.maxxcodebug.maxxequalizer.MbcActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
 
         <activity
-            android:name="com.bearinmind.equalizer314.LimiterActivity"
+            android:name="com.maxxcodebug.maxxequalizer.LimiterActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
 
         <activity
-            android:name="com.bearinmind.equalizer314.AutoEqActivity"
+            android:name="com.maxxcodebug.maxxequalizer.AutoEqActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
 
         <activity
-            android:name="com.bearinmind.equalizer314.TargetCurveActivity"
+            android:name="com.maxxcodebug.maxxequalizer.TargetCurveActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
 
         <activity
-            android:name="com.bearinmind.equalizer314.MeasurementSelectActivity"
+            android:name="com.maxxcodebug.maxxequalizer.MeasurementSelectActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
 
         <activity
-            android:name="com.bearinmind.equalizer314.TargetSelectActivity"
+            android:name="com.maxxcodebug.maxxequalizer.TargetSelectActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
 
         <activity
-            android:name="com.bearinmind.equalizer314.SpectrumControlActivity"
+            android:name="com.maxxcodebug.maxxequalizer.SpectrumControlActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
         <activity
-            android:name="com.bearinmind.equalizer314.ExperimentalActivity"
+            android:name="com.maxxcodebug.maxxequalizer.ExperimentalActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
         <activity
-            android:name="com.bearinmind.equalizer314.CustomPresetsActivity"
+            android:name="com.maxxcodebug.maxxequalizer.CustomPresetsActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
         <activity
-            android:name="com.bearinmind.equalizer314.ChannelSideEqActivity"
+            android:name="com.maxxcodebug.maxxequalizer.ChannelSideEqActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
         <activity
-            android:name="com.bearinmind.equalizer314.ConvertToApoActivity"
+            android:name="com.maxxcodebug.maxxequalizer.ConvertToApoActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
         <activity
-            android:name="com.bearinmind.equalizer314.PresetsConversionsActivity"
+            android:name="com.maxxcodebug.maxxequalizer.PresetsConversionsActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
         <activity
-            android:name="com.bearinmind.equalizer314.AudioEffectsPipelineActivity"
+            android:name="com.maxxcodebug.maxxequalizer.AudioEffectsPipelineActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
         <activity
-            android:name="com.bearinmind.equalizer314.AudioOutputActivity"
+            android:name="com.maxxcodebug.maxxequalizer.AudioOutputActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
         <activity
-            android:name="com.bearinmind.equalizer314.ChannelInputActivity"
+            android:name="com.maxxcodebug.maxxequalizer.ChannelInputActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
         <activity
-            android:name="com.bearinmind.equalizer314.EnvironmentalReverbActivity"
+            android:name="com.maxxcodebug.maxxequalizer.EnvironmentalReverbActivity"
             android:exported="false"
             android:theme="@style/Theme.Equalizer314" />
 
         <service
-            android:name="com.bearinmind.equalizer314.audio.EqService"
+            android:name="com.maxxcodebug.maxxequalizer.audio.EqService"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
 
@@ -162,7 +162,7 @@
              on / off without opening MainActivity. Routes through
              EqService.ACTION_START_FROM_TILE and ACTION_STOP. -->
         <service
-            android:name="com.bearinmind.equalizer314.audio.Eq314TileService"
+            android:name="com.maxxcodebug.maxxequalizer.audio.Eq314TileService"
             android:exported="true"
             android:icon="@drawable/ic_nav_equalizer"
             android:label="EQ314"
@@ -181,7 +181,7 @@
              etc.). On OPEN we attach a per-session DynamicsProcessing
              with the user's bound preset; on CLOSE we release it. -->
         <receiver
-            android:name="com.bearinmind.equalizer314.audio.AudioSessionReceiver"
+            android:name="com.maxxcodebug.maxxequalizer.audio.AudioSessionReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.media.action.OPEN_AUDIO_EFFECT_CONTROL_SESSION" />
@@ -193,7 +193,7 @@
              the user had it on. Reads EqPreferencesManager.getPowerState
              and sends ACTION_AUTO_START to EqService when true. -->
         <receiver
-            android:name="com.bearinmind.equalizer314.audio.BootCompletedReceiver"
+            android:name="com.maxxcodebug.maxxequalizer.audio.BootCompletedReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -211,7 +211,7 @@
              system to send us nothing. Same pattern Wavelet and
              Poweramp EQ use. -->
         <service
-            android:name="com.bearinmind.equalizer314.audio.PlaybackListenerService"
+            android:name="com.maxxcodebug.maxxequalizer.audio.PlaybackListenerService"
             android:exported="false"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>

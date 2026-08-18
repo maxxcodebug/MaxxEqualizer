@@ -137,7 +137,7 @@
 
                         <!-- 246dp + ~42dp reclaimed from the retired second
                              mode-selector row. -->
-                        <com.bearinmind.equalizer314.ui.EqGraphView
+                        <com.maxxcodebug.maxxequalizer.ui.EqGraphView
                             android:id="@+id/eqGraphView"
                             android:layout_width="match_parent"
                             android:layout_height="288dp" />

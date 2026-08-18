@@ -4,7 +4,7 @@
      inside the outline. Right padding equals the left effective inset
      (handle + spacing) so the device-name text and preset dropdown
      sit at the same distance from the card border on both sides. -->
-<com.bearinmind.equalizer314.ui.NotchedDeviceCardView
+<com.maxxcodebug.maxxequalizer.ui.NotchedDeviceCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/deviceRowCard"
@@ -83,7 +83,7 @@
                 app:endIconTint="@color/dropdown_end_icon_tint"
                 app:hintTextColor="?attr/colorOnSurfaceVariant">
 
-                <com.bearinmind.equalizer314.ui.DropdownAutoCompleteTextView
+                <com.maxxcodebug.maxxequalizer.ui.DropdownAutoCompleteTextView
                     android:id="@+id/deviceRowPresetDropdown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -149,4 +149,4 @@
                 android:contentDescription="Toggle visibility" />
         </LinearLayout>
     </LinearLayout>
-</com.bearinmind.equalizer314.ui.NotchedDeviceCardView>
+</com.maxxcodebug.maxxequalizer.ui.NotchedDeviceCardView>

@@ -73,7 +73,7 @@
                 app:endIconTint="@color/dropdown_end_icon_tint"
                 app:hintTextColor="?attr/colorOnSurfaceVariant">
 
-                <com.bearinmind.equalizer314.ui.DropdownAutoCompleteTextView
+                <com.maxxcodebug.maxxequalizer.ui.DropdownAutoCompleteTextView
                     android:id="@+id/appRowPresetDropdown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

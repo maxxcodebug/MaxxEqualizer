@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.bearinmind.equalizer314"
+    namespace = "com.maxxcodebug.maxxequalizer"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.bearinmind.equalizer314"
+        applicationId = "com.maxxcodebug.maxxequalizer"
         minSdk = 24
         targetSdk = 35
         versionCode = 16
@@ -65,6 +65,7 @@ android {
 }
 
 dependencies {
+    implementation("com.eightbitlab:blurview:3.0.0")
     // Core Android
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

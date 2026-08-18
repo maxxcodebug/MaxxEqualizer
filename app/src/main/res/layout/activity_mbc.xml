@@ -62,12 +62,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.bearinmind.equalizer314.ui.EqGraphView
+            <com.maxxcodebug.maxxequalizer.ui.EqGraphView
                 android:id="@+id/mbcGraphView"
                 android:layout_width="match_parent"
                 android:layout_height="220dp" />
 
-            <com.bearinmind.equalizer314.ui.GrTraceView
+            <com.maxxcodebug.maxxequalizer.ui.GrTraceView
                 android:id="@+id/mbcGrTraceView"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
@@ -509,7 +509,7 @@
                         app:strokeColor="?attr/colorOutlineVariant"
                         app:strokeWidth="1dp">
 
-                        <com.bearinmind.equalizer314.ui.CompressorCurveView
+                        <com.maxxcodebug.maxxequalizer.ui.CompressorCurveView
                             android:id="@+id/mbcCompressorCurve"
                             android:layout_width="match_parent"
                             android:layout_height="200dp" />
@@ -768,7 +768,7 @@
                         app:strokeColor="?attr/colorOutlineVariant"
                         app:strokeWidth="1dp">
 
-                        <com.bearinmind.equalizer314.ui.AttackReleaseView
+                        <com.maxxcodebug.maxxequalizer.ui.AttackReleaseView
                             android:id="@+id/mbcAttackReleaseView"
                             android:layout_width="match_parent"
                             android:layout_height="100dp" />
@@ -802,7 +802,7 @@
                         app:strokeColor="?attr/colorOutlineVariant"
                         app:strokeWidth="1dp">
 
-                        <com.bearinmind.equalizer314.ui.GateCurveView
+                        <com.maxxcodebug.maxxequalizer.ui.GateCurveView
                             android:id="@+id/mbcGateCurve"
                             android:layout_width="match_parent"
                             android:layout_height="200dp" />

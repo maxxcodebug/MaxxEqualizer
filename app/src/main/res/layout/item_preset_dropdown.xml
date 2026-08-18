@@ -35,7 +35,7 @@
             android:visibility="gone" />
     </LinearLayout>
 
-    <com.bearinmind.equalizer314.ui.PresetCurveView
+    <com.maxxcodebug.maxxequalizer.ui.PresetCurveView
         android:id="@+id/presetRowCurve"
         android:layout_width="64dp"
         android:layout_height="28dp"
