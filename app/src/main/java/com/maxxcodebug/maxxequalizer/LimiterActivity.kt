@@ -239,7 +239,7 @@ class LimiterActivity : AppCompatActivity() {
             dialogView.addView(divider)
             dialogView.addView(btnRow)
 
-            val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+            val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
                 .setView(dialogView)
                 .create()
             cancelBtn.setOnClickListener { dialog.dismiss() }

@@ -537,7 +537,7 @@ class SimpleEqController(
         dialogView.addView(divider)
         dialogView.addView(btnRow)
 
-        val dialog = android.app.AlertDialog.Builder(activity, R.style.Theme_Equalizer314_Dialog)
+        val dialog = android.app.AlertDialog.Builder(activity, R.style.Theme_MaxxEqualizer_Dialog)
             .setView(dialogView)
             .create()
         cancelBtn.setOnClickListener { dialog.dismiss() }
@@ -879,7 +879,7 @@ class SimpleEqController(
         dlgView.addView(dlgMsg)
         dlgView.addView(dlgDiv)
         dlgView.addView(dlgBtnRow)
-        val dlg = android.app.AlertDialog.Builder(activity, R.style.Theme_Equalizer314_Dialog)
+        val dlg = android.app.AlertDialog.Builder(activity, R.style.Theme_MaxxEqualizer_Dialog)
             .setView(dlgView).create()
         dlgCancelBtn.setOnClickListener { dlg.dismiss() }
         dlgDeleteBtn.setOnClickListener {

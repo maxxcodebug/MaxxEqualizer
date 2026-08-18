@@ -24,7 +24,7 @@ object BackupManager {
 
     fun exportAll(context: Context): String {
         val root = JSONObject()
-        root.put("app", "Equalizer314")
+        root.put("app", "MaxxEqualizer")
         root.put("backupVersion", BACKUP_VERSION)
         for (file in PREF_FILES) {
             val prefs = context.getSharedPreferences(file, Context.MODE_PRIVATE)

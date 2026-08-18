@@ -45,20 +45,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Equalizer314"
+        android:theme="@style/Theme.MaxxEqualizer"
         tools:targetApi="31">
 
         <activity
             android:name="com.maxxcodebug.maxxequalizer.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Equalizer314"
+            android:theme="@style/Theme.MaxxEqualizer"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!-- Registers Equalizer314 as an audio-effect control panel,
+            <!-- Registers MaxxEqualizer as an audio-effect control panel,
                  so it appears in the system / OEM "which app handles
                  sound effects" chooser (Samsung "Sound quality and
                  effects", the DISPLAY_AUDIO_EFFECT_CONTROL_PANEL
@@ -85,73 +85,73 @@
         <activity
             android:name="com.maxxcodebug.maxxequalizer.MbcActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
 
         <activity
             android:name="com.maxxcodebug.maxxequalizer.LimiterActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
 
         <activity
             android:name="com.maxxcodebug.maxxequalizer.AutoEqActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
 
         <activity
             android:name="com.maxxcodebug.maxxequalizer.TargetCurveActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
 
         <activity
             android:name="com.maxxcodebug.maxxequalizer.MeasurementSelectActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
 
         <activity
             android:name="com.maxxcodebug.maxxequalizer.TargetSelectActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
 
         <activity
             android:name="com.maxxcodebug.maxxequalizer.SpectrumControlActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
         <activity
             android:name="com.maxxcodebug.maxxequalizer.ExperimentalActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
         <activity
             android:name="com.maxxcodebug.maxxequalizer.CustomPresetsActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
         <activity
             android:name="com.maxxcodebug.maxxequalizer.ChannelSideEqActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
         <activity
             android:name="com.maxxcodebug.maxxequalizer.ConvertToApoActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
         <activity
             android:name="com.maxxcodebug.maxxequalizer.PresetsConversionsActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
         <activity
             android:name="com.maxxcodebug.maxxequalizer.AudioEffectsPipelineActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
         <activity
             android:name="com.maxxcodebug.maxxequalizer.AudioOutputActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
         <activity
             android:name="com.maxxcodebug.maxxequalizer.ChannelInputActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
         <activity
             android:name="com.maxxcodebug.maxxequalizer.EnvironmentalReverbActivity"
             android:exported="false"
-            android:theme="@style/Theme.Equalizer314" />
+            android:theme="@style/Theme.MaxxEqualizer" />
 
         <service
             android:name="com.maxxcodebug.maxxequalizer.audio.EqService"

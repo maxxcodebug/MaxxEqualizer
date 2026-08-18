@@ -306,7 +306,7 @@ class AutoEqActivity : AppCompatActivity() {
         dialogView.addView(divider)
         dialogView.addView(btnRow)
 
-        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
             .setView(dialogView)
             .create()
         cancelBtn.setOnClickListener { dialog.dismiss() }
@@ -472,7 +472,7 @@ class AutoEqActivity : AppCompatActivity() {
         }
         btnRow.addView(deleteBtn); btnRow.addView(cancelBtn)
         dialogView.addView(title); dialogView.addView(message); dialogView.addView(divider); dialogView.addView(btnRow)
-        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog).setView(dialogView).create()
+        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog).setView(dialogView).create()
         cancelBtn.setOnClickListener { dialog.dismiss() }
         deleteBtn.setOnClickListener { onConfirm(); dialog.dismiss() }
         dialog.show()

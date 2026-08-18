@@ -11,8 +11,8 @@ android {
         applicationId = "com.maxxcodebug.maxxequalizer"
         minSdk = 24
         targetSdk = 35
-        versionCode = 16
-        versionName = "0.0.16-beta"
+        versionCode = 1
+        versionName = "1.0-ALPHA"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

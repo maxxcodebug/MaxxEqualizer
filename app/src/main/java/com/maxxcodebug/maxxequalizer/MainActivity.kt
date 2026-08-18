@@ -40,7 +40,7 @@ import kotlin.math.pow
 class  MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val TAG = "Equalizer314"
+        private const val TAG = "MaxxEqualizer"
     }
 
     // State manager
@@ -110,7 +110,7 @@ class  MainActivity : AppCompatActivity() {
                 )
                 recreate()
             } else {
-                android.widget.Toast.makeText(this, "Not a valid Equalizer314 backup", android.widget.Toast.LENGTH_SHORT).show()
+                android.widget.Toast.makeText(this, "Not a valid MaxxEqualizer backup", android.widget.Toast.LENGTH_SHORT).show()
             }
         } catch (e: Exception) {
             android.widget.Toast.makeText(this, "Restore failed: ${e.message}", android.widget.Toast.LENGTH_SHORT).show()
@@ -121,7 +121,7 @@ class  MainActivity : AppCompatActivity() {
         val intent = android.content.Intent(android.content.Intent.ACTION_CREATE_DOCUMENT).apply {
             addCategory(android.content.Intent.CATEGORY_OPENABLE)
             type = "application/json"
-            putExtra(android.content.Intent.EXTRA_TITLE, "Equalizer314-backup.json")
+            putExtra(android.content.Intent.EXTRA_TITLE, "MaxxEqualizer-backup.json")
         }
         backupExportLauncher.launch(intent)
     }
@@ -176,7 +176,7 @@ class  MainActivity : AppCompatActivity() {
         dialogView.addView(divider)
         dialogView.addView(btnRow)
 
-        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
             .setView(dialogView).create()
         exportBtn.setOnClickListener { dialog.dismiss(); launchBackupExport() }
         importBtn.setOnClickListener { dialog.dismiss(); backupImportLauncher.launch("application/json") }
@@ -357,6 +357,7 @@ class  MainActivity : AppCompatActivity() {
     private lateinit var bandInputGroup: View
     private lateinit var pageEq: View
     private lateinit var pageSettings: View
+    private lateinit var pageAbout: View
 
     // ---- Graph-header button palette (themed) ----
     // Buttons sit on the graph card (colorSurfaceVariant: #1E1E1E dark / #E4E4E4 light);
@@ -725,6 +726,7 @@ class  MainActivity : AppCompatActivity() {
         bandInputGroup = findViewById(R.id.bandInputGroup)
         pageEq = findViewById(R.id.pageEq)
         pageSettings = findViewById(R.id.pageSettings)
+        pageAbout = findViewById(R.id.pageAbout)
         navSettingsButton = findViewById(R.id.navSettingsButton)
         navPresetsButton = findViewById(R.id.navPresetsButton)
         powerFab = findViewById(R.id.powerFab)
@@ -1332,7 +1334,7 @@ class  MainActivity : AppCompatActivity() {
                 dialogView.addView(divider)
                 dialogView.addView(btnRow)
 
-                val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+                val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
                     .setView(dialogView)
                     .create()
                 cancelBtn.setOnClickListener { dialog.dismiss() }
@@ -1609,7 +1611,7 @@ class  MainActivity : AppCompatActivity() {
                     dlgView.addView(dlgMsg)
                     dlgView.addView(dlgDiv)
                     dlgView.addView(dlgBtnRow)
-                    val dlg = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+                    val dlg = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
                         .setView(dlgView).create()
                     dlgCancelBtn.setOnClickListener { dlg.dismiss() }
                     dlgDeleteBtn.setOnClickListener {
@@ -1802,7 +1804,7 @@ class  MainActivity : AppCompatActivity() {
                     dlgView.addView(dlgInputBox)
                     dlgView.addView(dlgDiv)
                     dlgView.addView(dlgBtnRow)
-                    val dlg = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+                    val dlg = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
                         .setView(dlgView).create()
                     dlgCancelBtn.setOnClickListener { dlg.dismiss() }
                     dlgOkBtn.setOnClickListener {
@@ -2095,7 +2097,7 @@ class  MainActivity : AppCompatActivity() {
             dialogView.addView(divider)
             dialogView.addView(btnRow)
 
-            val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+            val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
                 .setView(dialogView)
                 .create()
             cancelBtn.setOnClickListener { dialog.dismiss() }
@@ -2657,6 +2659,21 @@ class  MainActivity : AppCompatActivity() {
 
         // Presets & Conversions sub-screen (AutoEQ & Presets / Generate Custom EQ /
         // Convert to APO); RESULT_OK = preset applied there → reload EQ from prefs.
+        findViewById<View>(R.id.aboutRowCard).setOnClickListener {
+            pageEq.visibility = View.GONE
+            pageSettings.visibility = View.GONE
+            pageAbout.visibility = View.VISIBLE
+        }
+
+        findViewById<View>(R.id.aboutCloseButton).setOnClickListener {
+            pageAbout.visibility = View.GONE
+            pageSettings.visibility = View.VISIBLE
+        }
+
+        findViewById<View>(R.id.aboutCreditsCard).setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://github.com/bearinmindcat/Equalizer314")))
+        }
+
         findViewById<View>(R.id.presetsConversionsCard).setOnClickListener {
             presetsConversionsLauncher.launch(Intent(this, PresetsConversionsActivity::class.java))
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)

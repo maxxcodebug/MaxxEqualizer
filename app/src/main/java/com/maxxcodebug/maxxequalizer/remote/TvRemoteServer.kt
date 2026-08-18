@@ -224,7 +224,7 @@ class TvRemoteServer(
         try {
             val info = NsdServiceInfo().apply {
                 // Just the device model — the service TYPE already scopes
-                // discovery to Equalizer314 instances.
+                // discovery to MaxxEqualizer instances.
                 serviceName = android.os.Build.MODEL ?: "Device"
                 serviceType = SERVICE_TYPE
                 setPort(this@TvRemoteServer.port)

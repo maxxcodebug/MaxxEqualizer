@@ -8,7 +8,7 @@
          contrast relationships. The active palette is picked by
          AppCompatDelegate night mode (see EqApp + the Settings toggle);
          dark remains the default. -->
-    <style name="Theme.Equalizer314" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.MaxxEqualizer" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary (grey) -->
         <item name="colorPrimary">#FF585858</item>
         <item name="colorOnPrimary">#FFFFFFFF</item>
@@ -47,23 +47,23 @@
     </style>
 
     <!-- Rounded dialog -->
-    <style name="Theme.Equalizer314.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+    <style name="Theme.MaxxEqualizer.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="android:windowBackground">@drawable/bg_dialog_rounded</item>
         <item name="android:backgroundDimAmount">0.6</item>
         <item name="android:textColorPrimary">#FFE2E2E2</item>
         <item name="android:textColorSecondary">#FFBBBBBB</item>
-        <item name="buttonBarPositiveButtonStyle">@style/Widget.Equalizer314.DialogButtonNegative</item>
-        <item name="buttonBarNegativeButtonStyle">@style/Widget.Equalizer314.DialogButtonReset</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.MaxxEqualizer.DialogButtonNegative</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.MaxxEqualizer.DialogButtonReset</item>
     </style>
 
-    <style name="Widget.Equalizer314.DialogButtonReset" parent="Widget.Material3.Button.OutlinedButton">
+    <style name="Widget.MaxxEqualizer.DialogButtonReset" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textColor">#FFEF9A9A</item>
         <item name="strokeColor">#FF444444</item>
         <item name="strokeWidth">1dp</item>
         <item name="cornerRadius">8dp</item>
     </style>
 
-    <style name="Widget.Equalizer314.DialogButtonNegative" parent="Widget.Material3.Button.OutlinedButton">
+    <style name="Widget.MaxxEqualizer.DialogButtonNegative" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textColor">#FFDDDDDD</item>
         <item name="strokeColor">#FF444444</item>
         <item name="strokeWidth">1dp</item>
@@ -71,18 +71,18 @@
     </style>
 
     <!-- Suffix text matching input text -->
-    <style name="TextAppearance.Equalizer314.Suffix" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.MaxxEqualizer.Suffix" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textSize">12sp</item>
     </style>
 
     <!-- Rounded FAB -->
-    <style name="ShapeAppearanceOverlay.Equalizer314.FAB" parent="">
+    <style name="ShapeAppearanceOverlay.MaxxEqualizer.FAB" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>
     </style>
 
     <!-- Pill-shaped FAB (wider than tall) -->
-    <style name="ShapeAppearanceOverlay.Equalizer314.FAB.Pill" parent="">
+    <style name="ShapeAppearanceOverlay.MaxxEqualizer.FAB.Pill" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>

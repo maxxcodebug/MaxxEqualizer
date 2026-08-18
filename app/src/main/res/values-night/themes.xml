@@ -3,7 +3,7 @@
      light palette lives in values/themes.xml; the active one is picked
      by AppCompatDelegate night mode (see EqApp + the Settings toggle). -->
 <resources>
-    <style name="Theme.Equalizer314" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.MaxxEqualizer" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary (grey) -->
         <item name="colorPrimary">#FFAAAAAA</item>
         <item name="colorOnPrimary">#FF000000</item>

@@ -385,7 +385,7 @@ class TargetCurveActivity : AppCompatActivity() {
 
         dialogView.addView(titleRow); dialogView.addView(editBox); dialogView.addView(divider); dialogView.addView(btnRow)
 
-        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
             .setView(dialogView).create()
 
         undoDlgBtn.setOnClickListener {
@@ -530,7 +530,7 @@ class TargetCurveActivity : AppCompatActivity() {
         dialogView.addView(divider)
         dialogView.addView(btnRow)
 
-        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
             .setView(dialogView)
             .create()
         cancelBtn.setOnClickListener { dialog.dismiss() }

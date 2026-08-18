@@ -1027,9 +1027,9 @@ class EqService : Service() {
         val volumePercent = if (maxVol > 0) (currentVol * 100 / maxVol) else 0
 
         val title = when (com.maxxcodebug.maxxequalizer.remote.TvRemoteHub.getMode(this)) {
-            com.maxxcodebug.maxxequalizer.remote.TvRemoteHub.MODE_SERVER -> "Equalizer314: Remote Controlled"
-            com.maxxcodebug.maxxequalizer.remote.TvRemoteHub.MODE_CLIENT -> "Equalizer314: Remote"
-            else -> if (isOn) "Equalizer314: Online" else "Equalizer314: Offline"
+            com.maxxcodebug.maxxequalizer.remote.TvRemoteHub.MODE_SERVER -> "MaxxEqualizer: Remote Controlled"
+            com.maxxcodebug.maxxequalizer.remote.TvRemoteHub.MODE_CLIENT -> "MaxxEqualizer: Remote"
+            else -> if (isOn) "MaxxEqualizer: Online" else "MaxxEqualizer: Offline"
         }
         val actionLabel = if (isOn) "Turn Off" else "Turn On"
         val volumeLine = "Volume: $volumePercent%"

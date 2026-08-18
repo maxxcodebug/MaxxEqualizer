@@ -393,7 +393,7 @@ class ExperimentalActivity : AppCompatActivity() {
                 android.widget.LinearLayout.LayoutParams.WRAP_CONTENT)
         }
         root.addView(cancelBtn)
-        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
             .setView(root)
             .create()
         dialog.setOnDismissListener { if (tvPinDialog === dialog) tvPinDialog = null }
@@ -454,7 +454,7 @@ class ExperimentalActivity : AppCompatActivity() {
         btnRow.addView(refreshBtn)
         root.addView(btnRow)
 
-        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
             .setView(root)
             .create()
         dialog.setOnDismissListener {
@@ -565,7 +565,7 @@ class ExperimentalActivity : AppCompatActivity() {
         btnRow.addView(pairBtn)
         root.addView(btnRow)
 
-        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_Equalizer314_Dialog)
+        val dialog = android.app.AlertDialog.Builder(this, R.style.Theme_MaxxEqualizer_Dialog)
             .setView(root)
             .create()
         cancelBtn.setOnClickListener { dialog.dismiss() }
