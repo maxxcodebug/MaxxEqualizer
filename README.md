@@ -2,7 +2,11 @@
 
 <img src="https://img.shields.io/badge/Requires-Android%209.0%2B%20(API%2028)-3DDC84?logo=android&logoColor=white" alt="Requires Android 9.0+ (API 28)">
 <img src="https://img.shields.io/badge/License-GPL--3.0-blue" alt="GPL-3.0">
-<img src="https://img.shields.io/badge/Part%20of-MaxxPixel%20OS-8A2BE2" alt="Part of MaxxPixel OS">
+
+<a href="https://github.com/MaxxPixel-OS">
+  <img src="https://img.shields.io/badge/Part%20of-MaxxPixel%20OS-8A2BE2" alt="Part of MaxxPixel OS">
+</a>
+
 
 ⚠️ This app is a fork, currently in **ALPHA**. Expect rough edges and missing polish while the rebrand and MaxxPixel OS integration work is ongoing. Issues and feedback are welcome.
 
