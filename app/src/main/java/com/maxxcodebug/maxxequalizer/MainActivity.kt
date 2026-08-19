@@ -4455,7 +4455,7 @@ class  MainActivity : AppCompatActivity() {
         // (theme toggle / config change) so the user stays where they were.
         outState.putBoolean(
             "onSettingsPage",
-            ::::pageSettings.isInitialized && pageSettings.visibility == View.VISIBLE
+            ::pageSettings.isInitialized && pageSettings.visibility == View.VISIBLE
         )
     }
 
