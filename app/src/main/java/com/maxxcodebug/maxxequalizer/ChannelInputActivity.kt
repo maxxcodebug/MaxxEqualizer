@@ -132,6 +132,7 @@ class ChannelInputActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        com.maxxcodebug.maxxequalizer.ui.AmoledThemeHelper.applyIfNeeded(this)
         setContentView(R.layout.activity_channel_input)
 
         eqPrefs = EqPreferencesManager(this)

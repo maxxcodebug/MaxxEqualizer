@@ -66,6 +66,7 @@ class MeasurementSelectActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        com.maxxcodebug.maxxequalizer.ui.AmoledThemeHelper.applyIfNeeded(this)
         setContentView(R.layout.activity_measurement_select)
 
         eqPrefs = EqPreferencesManager(this)

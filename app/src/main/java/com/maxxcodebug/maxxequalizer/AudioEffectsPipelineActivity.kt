@@ -64,6 +64,7 @@ class AudioEffectsPipelineActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        com.maxxcodebug.maxxequalizer.ui.AmoledThemeHelper.applyIfNeeded(this)
         setContentView(R.layout.activity_audio_effects_pipeline)
         eqPrefs = EqPreferencesManager(this)
 

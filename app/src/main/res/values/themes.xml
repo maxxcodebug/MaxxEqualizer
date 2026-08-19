@@ -115,4 +115,14 @@
         <item name="cornerSizeBottomLeft">8dp</item>
         <item name="cornerSizeBottomRight">8dp</item>
     </style>
+
+    <style name="ThemeOverlay.MaxxEqualizer.Amoled" parent="">
+        <item name="colorSurface">#FF000000</item>
+        <item name="colorSurfaceVariant">#FF0A0A0A</item>
+        <item name="colorSurfaceContainerLow">#FF000000</item>
+        <item name="colorSurfaceContainer">#FF050505</item>
+        <item name="colorSurfaceContainerHigh">#FF0D0D0D</item>
+        <item name="colorOutline">#FF2A2A2A</item>
+        <item name="colorOutlineVariant">#FF1A1A1A</item>
+    </style>
 </resources>

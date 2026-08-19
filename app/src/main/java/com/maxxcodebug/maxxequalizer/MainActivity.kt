@@ -528,6 +528,7 @@ class  MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        com.maxxcodebug.maxxequalizer.ui.AmoledThemeHelper.applyIfNeeded(this)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContentView(R.layout.activity_main)
 
@@ -2644,6 +2645,13 @@ class  MainActivity : AppCompatActivity() {
     private fun setupSettingsListeners() {
         // Theme toggle: switch ON = light. setDefaultNightMode recreates all live
         // activities; EqApp re-applies the saved choice on the next cold start.
+        val amoledSwitch = findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.amoledSwitch)
+        amoledSwitch.isChecked = com.maxxcodebug.maxxequalizer.ui.AmoledThemeHelper.isEnabled(this)
+        amoledSwitch.setOnCheckedChangeListener { _, isChecked ->
+            com.maxxcodebug.maxxequalizer.ui.AmoledThemeHelper.setEnabled(this, isChecked)
+            recreate()
+        }
+
         val themeSwitch = findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.themeSwitch)
         themeSwitch.isChecked = eqPrefs.getLightTheme()
         themeSwitch.setOnCheckedChangeListener { _, isChecked ->
