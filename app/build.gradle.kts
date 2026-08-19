@@ -65,7 +65,7 @@ android {
 }
 
 dependencies {
-    implementation("com.eightbitlab:blurview:3.0.0")
+    implementation("com.github.Dimezis:BlurView:version-3.2.0")
     // Core Android
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
