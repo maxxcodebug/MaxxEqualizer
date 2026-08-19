@@ -732,11 +732,11 @@ class  MainActivity : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this) {
             when {
-                pageAbout.isInitialized && pageAbout.visibility == View.VISIBLE -> {
+                ::pageAbout.isInitialized && pageAbout.visibility == View.VISIBLE -> {
                     pageAbout.visibility = View.GONE
                     pageSettings.visibility = View.VISIBLE
                 }
-                pageSettings.isInitialized && pageSettings.visibility == View.VISIBLE -> {
+                ::pageSettings.isInitialized && pageSettings.visibility == View.VISIBLE -> {
                     pageSettings.visibility = View.GONE
                     pageEq.visibility = View.VISIBLE
                     updateBottomBarHighlight(isEqPage = true)
@@ -4455,7 +4455,7 @@ class  MainActivity : AppCompatActivity() {
         // (theme toggle / config change) so the user stays where they were.
         outState.putBoolean(
             "onSettingsPage",
-            ::pageSettings.isInitialized && pageSettings.visibility == View.VISIBLE
+            ::::pageSettings.isInitialized && pageSettings.visibility == View.VISIBLE
         )
     }
 
