@@ -730,6 +730,12 @@ class  MainActivity : AppCompatActivity() {
         pageSettings = findViewById(R.id.pageSettings)
         pageAbout = findViewById(R.id.pageAbout)
 
+        val blurView = findViewById<eightbitlab.com.blurview.BlurView>(R.id.blurView)
+        val rootContent = window.decorView.findViewById<android.view.ViewGroup>(android.R.id.content)
+        blurView.setupWith(rootContent)
+            .setBlurRadius(18f)
+        blurView.clipToOutline = true
+
         onBackPressedDispatcher.addCallback(this) {
             when {
                 ::pageAbout.isInitialized && pageAbout.visibility == View.VISIBLE -> {
