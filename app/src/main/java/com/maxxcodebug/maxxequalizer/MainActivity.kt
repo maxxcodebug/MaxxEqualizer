@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import android.os.Bundle
+import androidx.activity.addCallback
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
@@ -728,6 +729,24 @@ class  MainActivity : AppCompatActivity() {
         pageEq = findViewById(R.id.pageEq)
         pageSettings = findViewById(R.id.pageSettings)
         pageAbout = findViewById(R.id.pageAbout)
+
+        onBackPressedDispatcher.addCallback(this) {
+            when {
+                pageAbout.isInitialized && pageAbout.visibility == View.VISIBLE -> {
+                    pageAbout.visibility = View.GONE
+                    pageSettings.visibility = View.VISIBLE
+                }
+                pageSettings.isInitialized && pageSettings.visibility == View.VISIBLE -> {
+                    pageSettings.visibility = View.GONE
+                    pageEq.visibility = View.VISIBLE
+                    updateBottomBarHighlight(isEqPage = true)
+                }
+                else -> {
+                    isEnabled = false
+                    onBackPressedDispatcher.onBackPressed()
+                }
+            }
+        }
         navSettingsButton = findViewById(R.id.navSettingsButton)
         navPresetsButton = findViewById(R.id.navPresetsButton)
         powerFab = findViewById(R.id.powerFab)
@@ -2667,6 +2686,11 @@ class  MainActivity : AppCompatActivity() {
 
         // Presets & Conversions sub-screen (AutoEQ & Presets / Generate Custom EQ /
         // Convert to APO); RESULT_OK = preset applied there → reload EQ from prefs.
+        com.bumptech.glide.Glide.with(this)
+            .load("https://avatars.githubusercontent.com/u/238669793?v=4")
+            .circleCrop()
+            .into(findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.aboutAvatarImage))
+
         findViewById<View>(R.id.aboutRowCard).setOnClickListener {
             pageEq.visibility = View.GONE
             pageSettings.visibility = View.GONE
@@ -4443,6 +4467,7 @@ class  MainActivity : AppCompatActivity() {
         } else {
             stateManager.isProcessing = false
         }
+        pageAbout.visibility = View.GONE
         if (intent?.getBooleanExtra("showSettings", false) == true) {
             pageEq.visibility = View.GONE
             pageSettings.visibility = View.VISIBLE

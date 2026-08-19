@@ -1693,26 +1693,41 @@
 
             <!-- ===== Hero card ===== -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/aboutHeroCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="?attr/colorPrimaryContainer"
                 app:cardCornerRadius="28dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
+                app:cardElevation="6dp"
+                app:strokeColor="#40FFFFFF"
+                app:strokeWidth="1dp">
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal"
-                    android:padding="28dp">
+                    android:layout_height="wrap_content">
 
-                    <com.google.android.material.imageview.ShapeableImageView
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:background="@drawable/bg_glass_sheen" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:padding="28dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/aboutAvatarImage"
                         android:layout_width="84dp"
                         android:layout_height="84dp"
                         android:src="@mipmap/ic_launcher"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
+                        android:scaleType="centerCrop"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.ExtraLarge"
+                        app:strokeColor="#33FFFFFF"
+                        app:strokeWidth="1dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
