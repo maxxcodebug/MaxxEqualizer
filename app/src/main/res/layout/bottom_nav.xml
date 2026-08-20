@@ -131,6 +131,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="20dp">
+                    <ImageButton
+                        android:id="@+id/navMusicButton"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_nav_equalizer"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Music"
+                        android:scaleType="centerInside"
+                        app:tint="?attr/colorOnSurface" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     android:gravity="center">
                     <ImageButton
                         android:id="@+id/navSettingsButton"

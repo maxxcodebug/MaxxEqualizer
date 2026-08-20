@@ -8,7 +8,7 @@ import android.widget.TextView
 import com.maxxcodebug.maxxequalizer.*
 import com.maxxcodebug.maxxequalizer.state.EqPreferencesManager
 
-enum class NavScreen { EQ, MBC, LIMITER, SETTINGS }
+enum class NavScreen { EQ, MBC, LIMITER, SETTINGS, MUSIC }
 
 object BottomNavHelper {
 
@@ -45,6 +45,7 @@ object BottomNavHelper {
         val navMbc = activity.findViewById<ImageButton>(R.id.navMbcButton)
         val navLimiter = activity.findViewById<ImageButton>(R.id.navLimiterButton)
         val navSettings = activity.findViewById<ImageButton>(R.id.navSettingsButton)
+        val navMusic = activity.findViewById<ImageButton>(R.id.navMusicButton)
 
         fun navigateWithAnimation(targetScreen: NavScreen, navigate: () -> Unit) {
             if (currentScreen == targetScreen) return
@@ -81,6 +82,12 @@ object BottomNavHelper {
                 activity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
         }
+        navMusic.setOnClickListener {
+            navigateWithAnimation(NavScreen.MUSIC) {
+                activity.startActivity(Intent(activity, MusicActivity::class.java))
+                activity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            }
+        }
 
         setHighlightInstant(activity, currentScreen)
         updateStatus(activity, eqPrefs)
@@ -93,13 +100,15 @@ object BottomNavHelper {
         val navMbc = activity.findViewById<ImageButton>(R.id.navMbcButton)
         val navLimiter = activity.findViewById<ImageButton>(R.id.navLimiterButton)
         val navSettings = activity.findViewById<ImageButton>(R.id.navSettingsButton)
+        val navMusic = activity.findViewById<ImageButton>(R.id.navMusicButton)
 
         val density = activity.resources.displayMetrics.density
         val buttons = listOf(
             navEq to (currentScreen == NavScreen.EQ),
             navMbc to (currentScreen == NavScreen.MBC),
             navLimiter to (currentScreen == NavScreen.LIMITER),
-            navSettings to (currentScreen == NavScreen.SETTINGS)
+            navSettings to (currentScreen == NavScreen.SETTINGS),
+            navMusic to (currentScreen == NavScreen.MUSIC)
         )
         val active = activeColor(activity); val dim = dimColor(activity)
         for ((btn, isActive) in buttons) {
@@ -125,13 +134,15 @@ object BottomNavHelper {
         val navMbc = activity.findViewById<ImageButton>(R.id.navMbcButton)
         val navLimiter = activity.findViewById<ImageButton>(R.id.navLimiterButton)
         val navSettings = activity.findViewById<ImageButton>(R.id.navSettingsButton)
+        val navMusic = activity.findViewById<ImageButton>(R.id.navMusicButton)
 
         val density = activity.resources.displayMetrics.density
         val buttons = listOf(
             navEq to (currentScreen == NavScreen.EQ),
             navMbc to (currentScreen == NavScreen.MBC),
             navLimiter to (currentScreen == NavScreen.LIMITER),
-            navSettings to (currentScreen == NavScreen.SETTINGS)
+            navSettings to (currentScreen == NavScreen.SETTINGS),
+            navMusic to (currentScreen == NavScreen.MUSIC)
         )
         val active = activeColor(activity); val dim = dimColor(activity)
         for ((btn, isActive) in buttons) {
