@@ -74,8 +74,8 @@ class LimiterActivity : AppCompatActivity() {
 
 
         findViewById<eightbitlab.com.blurview.BlurView>(R.id.blurView)?.let { blurView ->
-            val rootContent = window.decorView.findViewById<android.view.ViewGroup>(android.R.id.content)
-            blurView.setupWith(rootContent).setBlurRadius(18f)
+            val blurTarget = findViewById<eightbitlab.com.blurview.BlurTarget>(R.id.contentBlurTarget)
+            blurView.setupWith(blurTarget).setBlurRadius(18f)
             blurView.clipToOutline = true
         }
         eqPrefs = EqPreferencesManager(this)

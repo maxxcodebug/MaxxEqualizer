@@ -179,10 +179,15 @@
         android:paddingBottom="8dp" />
 
     <!-- Scrollable band parameters -->
-    <ScrollView
+    <eightbitlab.com.blurview.BlurTarget
+        android:id="@+id/contentBlurTarget"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scrollbars="none"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
@@ -917,6 +922,8 @@
 
         </LinearLayout>
     </ScrollView>
+
+    </eightbitlab.com.blurview.BlurTarget>
 
     <!-- Bottom Bar -->
     <FrameLayout

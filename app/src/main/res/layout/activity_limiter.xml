@@ -45,10 +45,15 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <ScrollView
+    <eightbitlab.com.blurview.BlurTarget
+        android:id="@+id/contentBlurTarget"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:scrollbars="none">
 
@@ -276,6 +281,8 @@
 
         </LinearLayout>
     </ScrollView>
+
+    </eightbitlab.com.blurview.BlurTarget>
 
     <!-- Bottom Bar -->
     <FrameLayout
