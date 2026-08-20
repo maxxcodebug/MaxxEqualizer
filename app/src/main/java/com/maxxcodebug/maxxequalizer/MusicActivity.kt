@@ -80,7 +80,7 @@ class MusicActivity : AppCompatActivity(), PlaybackState.Listener {
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(sb: SeekBar?, progress: Int, fromUser: Boolean) {
-                if (fromUser) mediaPlayer?.seekTo(progress)
+                if (fromUser) MusicService.seekTo(this@MusicActivity, progress)
             }
             override fun onStartTrackingTouch(sb: SeekBar?) {}
             override fun onStopTrackingTouch(sb: SeekBar?) {}
@@ -192,8 +192,6 @@ class MusicActivity : AppCompatActivity(), PlaybackState.Listener {
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer?.release()
-        mediaPlayer = null
     }
 }
 
