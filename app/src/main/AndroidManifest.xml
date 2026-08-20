@@ -100,6 +100,16 @@
             android:theme="@style/Theme.MaxxEqualizer" />
 
         <activity
+            android:name="com.maxxcodebug.maxxequalizer.NowPlayingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaxxEqualizer" />
+
+        <service
+            android:name="com.maxxcodebug.maxxequalizer.MusicService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <activity
             android:name="com.maxxcodebug.maxxequalizer.AutoEqActivity"
             android:exported="false"
             android:theme="@style/Theme.MaxxEqualizer" />

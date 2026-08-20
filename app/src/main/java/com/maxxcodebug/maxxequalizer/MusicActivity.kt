@@ -14,6 +14,7 @@ import android.widget.ImageButton
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,7 +32,7 @@ data class Song(
     val uri: Uri
 )
 
-class MusicActivity : AppCompatActivity() {
+class MusicActivity : AppCompatActivity(), PlaybackState.Listener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: SongAdapter
@@ -41,7 +42,6 @@ class MusicActivity : AppCompatActivity() {
     private lateinit var playPauseButton: ImageButton
     private lateinit var seekBar: SeekBar
 
-    private var mediaPlayer: MediaPlayer? = null
     private var currentSong: Song? = null
     private val songs = mutableListOf<Song>()
     private val handler = android.os.Handler(android.os.Looper.getMainLooper())
@@ -91,6 +91,37 @@ class MusicActivity : AppCompatActivity() {
         BottomNavHelper.setup(this, NavScreen.MUSIC, EqPreferencesManager(this))
 
         checkPermissionAndLoad()
+
+        if (PlaybackState.currentTitle != null) {
+            nowPlayingBar.visibility = View.VISIBLE
+            nowPlayingTitle.text = PlaybackState.currentTitle
+            nowPlayingArtist.text = PlaybackState.currentArtist
+            nowPlayingBar.setOnClickListener {
+                startActivity(Intent(this, NowPlayingActivity::class.java))
+            }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        PlaybackState.addListener(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        PlaybackState.removeListener(this)
+    }
+
+    override fun onStateChanged() {
+        runOnUiThread {
+            playPauseButton.setImageResource(
+                if (PlaybackState.isPlaying) R.drawable.ic_nav_power else R.drawable.ic_nav_equalizer
+            )
+        }
+    }
+
+    override fun onProgress(position: Int) {
+        runOnUiThread { seekBar.progress = position }
     }
 
     private fun checkPermissionAndLoad() {
@@ -145,52 +176,18 @@ class MusicActivity : AppCompatActivity() {
     }
 
     private fun playSong(song: Song) {
-        mediaPlayer?.release()
-        mediaPlayer = MediaPlayer().apply {
-            setDataSource(this@MusicActivity, song.uri)
-            setOnPreparedListener {
-                start()
-                seekBar.max = duration
-                startSeekBarUpdates()
-            }
-            setOnCompletionListener { updatePlayPauseIcon(isPlaying = false) }
-            prepareAsync()
-        }
+        MusicService.playSong(this, song.uri, song.title, song.artist)
         currentSong = song
         nowPlayingBar.visibility = View.VISIBLE
         nowPlayingTitle.text = song.title
         nowPlayingArtist.text = song.artist
-        updatePlayPauseIcon(isPlaying = true)
-    }
-
-    private fun togglePlayPause() {
-        val mp = mediaPlayer ?: return
-        if (mp.isPlaying) {
-            mp.pause()
-            updatePlayPauseIcon(isPlaying = false)
-        } else {
-            mp.start()
-            updatePlayPauseIcon(isPlaying = true)
-            startSeekBarUpdates()
+        nowPlayingBar.setOnClickListener {
+            startActivity(Intent(this, NowPlayingActivity::class.java))
         }
     }
 
-    private fun updatePlayPauseIcon(isPlaying: Boolean) {
-        playPauseButton.setImageResource(
-            if (isPlaying) R.drawable.ic_nav_power else R.drawable.ic_nav_equalizer
-        )
-    }
-
-    private fun startSeekBarUpdates() {
-        handler.post(object : Runnable {
-            override fun run() {
-                val mp = mediaPlayer ?: return
-                if (mp.isPlaying) {
-                    seekBar.progress = mp.currentPosition
-                    handler.postDelayed(this, 500)
-                }
-            }
-        })
+    private fun togglePlayPause() {
+        MusicService.togglePlayPause(this)
     }
 
     override fun onDestroy() {
