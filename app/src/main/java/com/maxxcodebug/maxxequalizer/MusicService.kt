@@ -174,8 +174,10 @@ class MusicService : Service() {
         mediaSession.setPlaybackState(playbackState)
 
         val playPauseIcon = if (PlaybackState.isPlaying) R.drawable.ic_nav_power else R.drawable.ic_nav_equalizer
-        val playPauseIntent = android.support.v4.media.session.MediaButtonReceiver.buildMediaButtonPendingIntent(
-            this, PlaybackStateCompat.ACTION_PLAY_PAUSE
+        val toggleIntent = Intent(this, MusicService::class.java).apply { action = ACTION_TOGGLE }
+        val playPausePendingIntent = android.app.PendingIntent.getService(
+            this, 0, toggleIntent,
+            android.app.PendingIntent.FLAG_UPDATE_CURRENT or android.app.PendingIntent.FLAG_IMMUTABLE
         )
 
         return androidx.core.app.NotificationCompat.Builder(this, channelId)
@@ -184,7 +186,7 @@ class MusicService : Service() {
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setLargeIcon(android.graphics.BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher))
             .setOngoing(PlaybackState.isPlaying)
-            .addAction(playPauseIcon, "Play/Pause", playPauseIntent)
+            .addAction(playPauseIcon, "Play/Pause", playPausePendingIntent)
             .setStyle(
                 MediaNotificationCompat.MediaStyle()
                     .setMediaSession(mediaSession.sessionToken)
