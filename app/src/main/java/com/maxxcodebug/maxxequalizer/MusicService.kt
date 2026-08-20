@@ -6,6 +6,9 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.IBinder
+import android.support.v4.media.session.MediaSessionCompat
+import android.support.v4.media.session.PlaybackStateCompat
+import androidx.media.app.NotificationCompat as MediaNotificationCompat
 
 /**
  * Playback state + listener bus. Same-process, so Activities talk to this
@@ -36,6 +39,7 @@ class MusicService : Service() {
     private var mediaPlayer: MediaPlayer? = null
     private val handler = android.os.Handler(android.os.Looper.getMainLooper())
     private val channelId = "maxxequalizer_music_playback"
+    private lateinit var mediaSession: MediaSessionCompat
 
     companion object {
         const val ACTION_PLAY = "com.maxxcodebug.maxxequalizer.action.PLAY"
@@ -77,6 +81,13 @@ class MusicService : Service() {
         super.onCreate()
         instance = this
         createNotificationChannel()
+        mediaSession = MediaSessionCompat(this, "MaxxEqualizerSession").apply {
+            setCallback(object : MediaSessionCompat.Callback() {
+                override fun onPlay() { toggleInternal() }
+                override fun onPause() { toggleInternal() }
+            })
+            isActive = true
+        }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -152,7 +163,34 @@ class MusicService : Service() {
     }
 
     private fun buildNotification(title: String, artist: String): Notification {
-        return NotificationCompatBuilder(this, channelId, title, artist)
+        val playbackState = PlaybackStateCompat.Builder()
+            .setActions(PlaybackStateCompat.ACTION_PLAY_PAUSE)
+            .setState(
+                if (PlaybackState.isPlaying) PlaybackStateCompat.STATE_PLAYING else PlaybackStateCompat.STATE_PAUSED,
+                mediaPlayer?.currentPosition?.toLong() ?: 0L,
+                1f
+            )
+            .build()
+        mediaSession.setPlaybackState(playbackState)
+
+        val playPauseIcon = if (PlaybackState.isPlaying) R.drawable.ic_nav_power else R.drawable.ic_nav_equalizer
+        val playPauseIntent = android.support.v4.media.session.MediaButtonReceiver.buildMediaButtonPendingIntent(
+            this, PlaybackStateCompat.ACTION_PLAY_PAUSE
+        )
+
+        return androidx.core.app.NotificationCompat.Builder(this, channelId)
+            .setContentTitle(title)
+            .setContentText(artist)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setLargeIcon(android.graphics.BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher))
+            .setOngoing(PlaybackState.isPlaying)
+            .addAction(playPauseIcon, "Play/Pause", playPauseIntent)
+            .setStyle(
+                MediaNotificationCompat.MediaStyle()
+                    .setMediaSession(mediaSession.sessionToken)
+                    .setShowActionsInCompactView(0)
+            )
+            .build()
     }
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -161,21 +199,8 @@ class MusicService : Service() {
         super.onDestroy()
         mediaPlayer?.release()
         mediaPlayer = null
+        mediaSession.release()
         instance = null
     }
 }
 
-/** Small helper so we don't need to pull in androidx.core notification builder imports separately. */
-private fun NotificationCompatBuilder(
-    context: android.content.Context,
-    channelId: String,
-    title: String,
-    artist: String
-): Notification {
-    return androidx.core.app.NotificationCompat.Builder(context, channelId)
-        .setContentTitle(title)
-        .setContentText(artist)
-        .setSmallIcon(R.drawable.ic_nav_equalizer)
-        .setOngoing(true)
-        .build()
-}

@@ -4,6 +4,12 @@ plugins {
 }
 
 android {
+    applicationVariants.all {
+        outputs.all {
+            val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+            output.outputFileName = "MaxxEqualizer-${versionName}.apk"
+        }
+    }
     namespace = "com.maxxcodebug.maxxequalizer"
     compileSdk = 35
 
@@ -12,7 +18,7 @@ android {
         minSdk = 24
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0-ALPHA"
+        versionName = "1.0-dev"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -67,6 +73,7 @@ android {
 dependencies {
     implementation("com.github.Dimezis:BlurView:version-3.2.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("androidx.media:media:1.7.0")
     // Core Android
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
