@@ -72,6 +72,12 @@ class LimiterActivity : AppCompatActivity() {
         com.maxxcodebug.maxxequalizer.ui.AmoledThemeHelper.applyIfNeeded(this)
         setContentView(R.layout.activity_limiter)
 
+
+        findViewById<eightbitlab.com.blurview.BlurView>(R.id.blurView)?.let { blurView ->
+            val rootContent = window.decorView.findViewById<android.view.ViewGroup>(android.R.id.content)
+            blurView.setupWith(rootContent).setBlurRadius(18f)
+            blurView.clipToOutline = true
+        }
         eqPrefs = EqPreferencesManager(this)
         initViews()
         loadState()

@@ -151,6 +151,12 @@ class MbcActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContentView(R.layout.activity_mbc)
 
+
+        findViewById<eightbitlab.com.blurview.BlurView>(R.id.blurView)?.let { blurView ->
+            val rootContent = window.decorView.findViewById<android.view.ViewGroup>(android.R.id.content)
+            blurView.setupWith(rootContent).setBlurRadius(18f)
+            blurView.clipToOutline = true
+        }
         val root = findViewById<android.view.View>(R.id.mbcRoot)
         ViewCompat.setOnApplyWindowInsetsListener(root) { view, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
